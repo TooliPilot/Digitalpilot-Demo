@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Kdlbi8r07CusVqBKE35l8wpC2KPkT7k9H9iUiS9LXRI=' 'sha256-uAToGk7im+8DhhOEvLlq7npo0nRBxV7Kj6iGvn8/zq0=' 'sha256-BaG/i++sb+qYIVUD//IMmx2+VTQa+8CARTEt1F/WvE8='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="description" content="DigitalPilot: Offline-Demo zur Prüfung von Shopify-Auszahlungen mit ausschließlich erfundenen Beispieldaten.">
+<title>DigitalPilot · Sicherer Demotest · 0.12</title>
+<style>
+:root{color-scheme:light;--bg:#f3f6fb;--ink:#17283a;--sub:#516276;--line:#dae4ee;--navy:#143b59;--accent:#145aa2;--card:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1020px;margin:auto;padding:30px 20px 70px}.topline{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--sub)}.pill{border:1px solid #b5c8d8;border-radius:50px;padding:2px 10px;background:#eaf3fa;color:#204b68;font-weight:700}h1{font-size:clamp(26px,4.2vw,43px);line-height:1.12;letter-spacing:-.025em;margin:13px 0}h2{font-size:22px;margin:0 0 12px}h3{font-size:17px;margin:0 0 8px}p{margin:8px 0 14px}.lede{font-size:18px;color:var(--sub);max-width:760px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:23px;margin:18px 0;box-shadow:0 1px 2px #1018280b}.soft{background:#eef4fb;border-left:4px solid var(--accent);padding:15px;border-radius:8px}.warning{background:#fff5e2;border-left:4px solid #9a6509;padding:13px 15px;border-radius:7px}.note{color:var(--sub);font-size:14px}.row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.metric{border:1px solid var(--line);border-radius:11px;background:#f7fafe;padding:15px;min-width:0}.metric b{display:block;font-size:25px;margin-top:2px;overflow-wrap:anywhere}.metric small{color:var(--sub)}.scenarios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scenario{text-align:left;color:var(--ink);background:#f8fafd;border:2px solid var(--line);border-radius:12px;padding:15px;cursor:pointer;font:inherit;line-height:1.4}.scenario strong{display:block;margin-bottom:6px}.scenario[aria-pressed=true]{border-color:var(--accent);background:#eaf4ff}.scenario:hover{border-color:#6593ba}button:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #db9b06;outline-offset:3px}.status{font-weight:750;font-size:19px;margin:4px 0 12px}.candidate{border:1px solid var(--line);border-radius:10px;padding:13px 16px;margin:10px 0}.candidate strong{display:block}.candidate ul{margin:7px 0 0;padding-left:21px}.candidate li{margin:4px 0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.step{font-weight:700;color:var(--accent)}.small{font-size:13px}.feedback label{font-weight:700;display:block;margin:11px 0 5px}.feedback select,.feedback textarea{width:100%;border:1px solid #9bb1c4;border-radius:8px;padding:10px;background:#fff;font:inherit;color:var(--ink)}.feedback textarea{min-height:110px;resize:vertical}.primary,.secondary{cursor:pointer;border:none;padding:12px 18px;border-radius:9px;font:inherit;font-weight:650;background:var(--accent);color:#fff;margin-top:12px}.secondary{color:var(--ink);background:#e6eff8}.footer{font-size:13px;color:var(--sub);padding-top:10px}#candidateList:empty:after{content:"Keine Kandidaten.";color:var(--sub)}.screenreader{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media(max-width:700px){main{padding:18px 12px 45px}.card{padding:17px}.row,.scenarios,.grid2{grid-template-columns:1fr}h1{margin:10px 0}.lede{font-size:16px}.scenario{padding:12px}}
+</style>
+</head>
+<body><main>
+<div class="topline"><span class="pill">100 % Demodaten</span><span>DigitalPilot · Konzepttest 0.12 · Offline · keine Anmeldung</span></div>
+<h1>Shopify-Auszahlungen verständlich prüfen</h1>
+<p class="lede">Was wäre, wenn du auf einen Blick sehen könntest, ob eine Auszahlung <strong>rechnerisch plausibel</strong> ist und welche Bankbuchungen <strong>möglicherweise</strong> dazu passen?</p>
+<p class="warning"><strong>Wichtig:</strong> Dieses Beispiel arbeitet ausschließlich mit erfundenen Daten. Es gibt hier <strong>keinen Datei-Upload</strong> und keine Prüfung echter Zahlungen. Ein Treffer ist kein Zahlungsnachweis.</p>
+<section class="card" aria-label="Ablauf"><h2>So funktioniert der Produktgedanke</h2><div class="row"><div><span class="step">01 · CSV prüfen</span><p>Umsatz, Gebühren und Netto vergleichen.</p></div><div><span class="step">02 · Bankabgleich</span><p>Mögliche Buchungen anhand von Betrag, Datum und Referenz finden.</p></div><div><span class="step">03 · Hinweise</span><p>Unsicherheiten deutlich kennzeichnen statt fehlendes Geld zu behaupten.</p></div></div></section>
+<section class="card" aria-labelledby="heading-demo"><h2 id="heading-demo">Beispiele ausprobieren</h2><p class="note">Wähle einen Fall. Alle Zahlen stammen aus identischen, synthetischen Shopify-Transaktionen: 100,00 € Belastung, −20,00 € Erstattung und 2,00 € Gebühr.</p>
+<div class="scenarios" role="group" aria-label="Demofall auswählen">
+<button class="scenario" id="case-ambiguous" data-case="ambiguous" aria-pressed="true"><strong>Fall A · Mehrdeutig</strong>Zwei Bankbuchungen mit dem gleichen Betrag. Keine eindeutige Zuordnung.</button>
+<button class="scenario" id="case-reference" data-case="reference" aria-pressed="false"><strong>Fall B · Referenz passt</strong>Eine Buchung enthält zusätzlich dieselbe Transferreferenz.</button>
+<button class="scenario" id="case-no-match" data-case="no-match" aria-pressed="false"><strong>Fall C · Kein Treffer</strong>Im Beispielkonto steht keine Buchung mit passendem Betrag.</button>
+</div>
+<div class="row" style="margin-top:18px"><div class="metric"><small>Betrag laut Demo-CSV</small><b id="gross">–</b></div><div class="metric"><small>Gebühren laut Demo-CSV</small><b id="fees">–</b></div><div class="metric"><small>Rechnerische Auszahlung</small><b id="net">–</b></div></div>
+<h3 style="margin-top:22px">Bewertung des ausgewählten Beispiels</h3><div class="status" id="status" role="status" aria-live="polite">Wird geladen …</div><p id="explanation" class="note"></p><div id="candidateList" aria-label="Mögliche Bankbuchungen"></div><p id="calculationStatus" class="soft small"></p><p class="note">Datum der simulierten Auszahlung: 03.10.2026. Alle Beträge in EUR; Vollständigkeit des Beispieldatensatzes ist vorausgesetzt.</p>
+</section>
+<section class="card feedback" aria-labelledby="feedbacktitle"><h2 id="feedbacktitle">Kurzes, anonymes Feedback</h2><p>Für den späteren freiwilligen Test: Bewerte nur die Idee und die Verständlichkeit. Keine Namen, Kontodaten oder echten Transaktionsdetails eintragen. Das Formular sendet <strong>nichts</strong>; du kannst eine Textdatei lokal speichern.</p>
+<div class="grid2"><div><label for="easy">Wie einfach war die Demo?</label><select id="easy"><option value="">Bitte wählen (freiwillig)</option><option>Sehr einfach</option><option>Eher einfach</option><option>Eher schwierig</option><option>Sehr schwierig</option></select></div><div><label for="useful">Wäre der Nutzen für dich klar?</label><select id="useful"><option value="">Bitte wählen (freiwillig)</option><option>Ja</option><option>Teilweise</option><option>Nein</option></select></div></div>
+<label for="comment">Was würdest du verbessern?</label><textarea id="comment" maxlength="1000" placeholder="Optional – bitte keine persönlichen oder finanziellen Daten."></textarea><button id="feedbackDownload" class="primary" type="button">Feedback lokal speichern</button><p id="feedbackStatus" class="small" role="status"></p></section>
+<footer class="footer">DigitalPilot ist ein unabhängiger Prototyp, kein offizielles Shopify-Produkt. Keine Anlage-, Buchhaltungs- oder Steuerberatung. Entwickelt zur Produktvalidierung, nicht für echte Finanzentscheidungen.</footer>
+</main><script>/* DigitalPilot v0.11 - local, deterministic CSV review. No external dependencies. */
+(function(root){'use strict';
+function parseCSV(input){const text=String(input).replace(/^\uFEFF/,'');const first=text.split(/\r?\n/,1)[0];let counts={',':0,';':0,'\t':0},quoted=false;for(let i=0;i<first.length;i++){if(first[i]==='"'){if(quoted&&first[i+1]==='"')i++;else quoted=!quoted}else if(!quoted&&Object.hasOwn(counts,first[i]))counts[first[i]]++}const delim=Object.keys(counts).sort((a,b)=>counts[b]-counts[a])[0];if(!counts[delim])throw Error('CSV-Trennzeichen nicht erkannt.');let rows=[],row=[],cell='',inQuote=false,afterQuote=false,atStart=true;function finish(){row.push(cell);if(row.some(v=>v.trim()!==''))rows.push(row);row=[];cell='';inQuote=false;afterQuote=false;atStart=true}for(let i=0;i<text.length;i++){const c=text[i];if(inQuote){if(c==='"'){if(text[i+1]==='"'){cell+='"';i++}else{inQuote=false;afterQuote=true}}else cell+=c;continue}if(afterQuote){if(c===delim){row.push(cell);cell='';afterQuote=false;atStart=true;continue}if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;finish();continue}throw Error('Unerwartete Zeichen nach CSV-Anführungszeichen.')}if(c==='"'){if(!atStart)throw Error('CSV-Anführungszeichen innerhalb eines ungeschützten Feldes.');inQuote=true;atStart=false}else if(c===delim){row.push(cell);cell='';atStart=true}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;finish()}else{cell+=c;atStart=false}}if(inQuote)throw Error('Nicht geschlossenes CSV-Anführungszeichen.');finish();if(rows.length<2)throw Error('CSV enthält keine Datensätze.');return rows}
+function money(raw){let s=String(raw??'').trim().replace(/[\u00a0\u202f\s€$£]/g,'');if(!s)return null;let neg=false;if(/^\(.*\)$/.test(s)){neg=true;s=s.slice(1,-1)}if(!/^[+-]?[0-9.,]+$/.test(s))return NaN;let sign=s.startsWith('-')?-1:1;s=s.replace(/^[+-]/,'');if(neg)sign=-1;let parts=s.split(/[.,]/),last=parts[parts.length-1],decimal='';if(s.includes(',')&&s.includes('.'))decimal=s.lastIndexOf(',')>s.lastIndexOf('.')?',':'.';else if(parts.length===2){if(last.length<=2)decimal=s.includes(',')?',':'.';else if(last.length===3)return NaN;else return NaN}else if(parts.length>2){if(parts.slice(1).some(x=>x.length!==3)||parts[0].length>3)return NaN}if(decimal){let a=s.split(decimal);if(a.length!==2||!/^[0-9]{1,2}$/.test(a[1]))return NaN;const left=a[0];if(/[.,]/.test(left)){let sep=decimal===','?'.':',';let groups=left.split(sep);if(groups.length<2||groups[0].length>3||groups.slice(1).some(x=>x.length!==3))return NaN}let whole=Number(left.replace(/[.,]/g,'')),fraction=Number(a[1].padEnd(2,'0'));let v=whole*100+fraction;return Number.isSafeInteger(v)?sign*v:NaN}if(/[.,]/.test(s)){let sep=s.includes(',')?',':'.',a=s.split(sep);if(a[0].length>3||a.slice(1).some(x=>x.length!==3))return NaN;s=a.join('')}let v=Number(s)*100;return /^\d+$/.test(s)&&Number.isSafeInteger(v)?sign*v:NaN}
+function validDate(s){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s)||/^(\d{2})\.(\d{2})\.(\d{4})$/.exec(s);if(!m)return false;const y=s.includes('-')?+m[1]:+m[3],mo=+m[2],d=s.includes('-')?+m[3]:+m[1];const dt=new Date(Date.UTC(y,mo-1,d));return dt.getUTCFullYear()===y&&dt.getUTCMonth()===mo-1&&dt.getUTCDate()===d}
+function norm(s){return String(s).toLowerCase().trim().replace(/[\s_\-]/g,'')}
+function validTransactionDate(s){
+ const value=String(s??'').trim();
+ const m=/^(\d{4}-\d{2}-\d{2}|\d{2}\.\d{2}\.\d{4})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?(?:\s?(?:Z|[+-]\d{2}:?\d{2}))?)?$/.exec(value);
+ if(!m||!validDate(m[1]))return false;
+ if(m[2]!==undefined&&(+m[2]>23||+m[3]>59||(m[4]!==undefined&&+m[4]>59)))return false;const zone=/(?:Z|([+-])(\d{2}):?(\d{2}))$/.exec(value);if(zone&&zone[1]&&(+zone[2]>14||+zone[3]>59||(+zone[2]===14&&+zone[3]!==0)))return false;
+ return true;
+}
+function analyze(rows,{mode='range',payoutRef='',currency='EUR',currencyConfirmed=false,exportCompleteConfirmed=false}={}){if(!['single','range'].includes(mode))throw Error('Exportart ungültig.');let headers=rows[0],aliases={amount:['amount','betrag'],fee:['fee','gebühr','gebuehr'],net:['net','netto'],status:['payoutstatus','auszahlungsstatus'],date:['payoutdate','auszahlungsdatum'],type:['type','typ'],order:['order','bestellung'],transactionDate:['transactiondate','transaktionsdatum'],payoutCurrency:['payoutcurrency','auszahlungswaehrung','auszahlungswährung']};let ix={};for(let key of Object.keys(aliases))ix[key]=headers.findIndex(h=>aliases[key].includes(norm(h)));if(['amount','fee','net','status','date'].some(x=>ix[x]<0))throw Error('Shopify-Transaktionsspalten fehlen: Amount, Fee, Net, Payout Status, Payout Date. Bitte Shopify Payments → einzelne Auszahlung → Transaktionen exportieren.');if(Object.entries(ix).some(([k,index])=>index>=0&&headers.filter(h=>aliases[k].includes(norm(h))).length>1))throw Error('Doppelte oder mehrdeutige Shopify-Spalten.');if(currency!=='EUR')throw Error('Diese Testversion unterstützt nur EUR und keine Umrechnung.');let issues=[],items=[],sum={amount:0,fee:0,net:0},dateSet=new Set(),invalid=0,pending=0,paid=0;const seen=new Map();const validStatuses=['paid','bezahlt','completed','complete','abgeschlossen','sent','gesendet','deposited','eingezahlt'];for(let i=1;i<rows.length;i++){let line=i+1,r=rows[i],issue=(level,text)=>issues.push({line,level,text});if(r.length!==headers.length){invalid++;issue('error','Spaltenanzahl stimmt nicht mit Kopfzeile überein.');continue}let amount=money(r[ix.amount]),fee=money(r[ix.fee]),net=money(r[ix.net]),status=r[ix.status].trim().toLowerCase(),date=r[ix.date].trim(),typ=ix.type>=0?r[ix.type]:'';if(ix.payoutCurrency>=0&&String(r[ix.payoutCurrency]).trim().toUpperCase()!=='EUR'){invalid++;issue('error','Auszahlungswährung in Shopify-Zeile nicht EUR oder leer. EUR-Bankvergleich gesperrt.')}const fingerprint=[ix.transactionDate>=0?r[ix.transactionDate]:'',ix.order>=0?r[ix.order]:'',typ,status,date,r[ix.amount],r[ix.fee],r[ix.net]].join('\u001f');if(seen.has(fingerprint)){invalid++;issue('error','Mögliche doppelte Transaktionszeile (auch Zeile '+seen.get(fingerprint)+'). Ob tatsächlich doppelt, bitte am Shopify-Original prüfen. Bankvergleich gesperrt.');}else seen.set(fingerprint,line);if([amount,fee,net].some(v=>v===null||!Number.isFinite(v))){invalid++;issue('error','Ungültiger Betrag, Fee oder Net.');continue}if(ix.transactionDate>=0&&!validTransactionDate(r[ix.transactionDate])){invalid++;issue('error','Transaction Date fehlt, ist ungültig oder besitzt eine nicht unterstützte Schreibweise.');}let expected=amount-fee;const consistent=expected===net;if(!consistent){invalid++;issue('error','Amount − Fee stimmt nicht mit Net überein.');}let isPaid=validStatuses.includes(status);if(!isPaid){pending++;issue('info','Nicht abgeschlossene Auszahlung ('+(status||'leer')+'): vom Bankvergleich ausgeschlossen.')}else if(!date||!validDate(date)){invalid++;issue('error','Abgeschlossene Transaktion mit fehlendem oder ungültigem Payout Date.')}else{dateSet.add(date);paid++}if(![sum.amount+amount,sum.fee+fee,sum.net+net].every(Number.isSafeInteger))throw Error('Geldsumme außerhalb des sicher darstellbaren Bereichs. Kein verlässlicher Bericht möglich.');sum.amount+=amount;sum.fee+=fee;sum.net+=net;items.push({line,amount,fee,net,status,date,typ,consistent,isPaid});}
+if(!items.length)throw Error('Keine gültigen Betragszeilen.');const paidItems=items.filter(x=>x.isPaid),eligible=paidItems.filter(x=>x.consistent&&x.date),paidDates=[...dateSet];let blocking=[];if(['transactionDate','type','order'].some(k=>ix[k]<0))blocking.push('Wichtige Shopify-Transaktionsspalten fehlen (Transaction Date, Type oder Order). Nur vorläufige Summen, kein Bankabgleich.');if(mode==='range')blocking.push('Zeitraumexport kann mehrere Auszahlungen enthalten. Kein Bankvergleich erlaubt.');if(!currencyConfirmed)blocking.push('Auszahlungswährung nicht bestätigt: Bitte in Shopify prüfen, ob diese Auszahlung in EUR erfolgt.');if(mode==='single'&&!exportCompleteConfirmed)blocking.push('Vollständigkeit des Einzelauszahlungsexports nicht bestätigt. Aktive Transaktionsfilter können Buchungen auslassen; bitte alle Filter entfernen und vollständigen Export prüfen.');if(!payoutRef.trim()&&mode==='single')blocking.push('Referenz der gewählten Einzel-Auszahlung fehlt.');if(paidDates.length!==1)blocking.push('Nicht genau ein Auszahlungsdatum für abgeschlossene Transaktionen erkennbar.');if(issues.some(i=>i.text.includes('Auszahlungswährung in Shopify-Zeile')))blocking.push('Auszahlungswährung in der CSV ist nicht EUR oder nicht angegeben. Kein EUR-Bankvergleich.');if(invalid)blocking.push('Fehlerhafte, unvollständige oder möglicherweise doppelte Zeilen: Bitte Shopify-Original prüfen.');if(pending)blocking.push('Nicht abgeschlossene Transaktionen im Export; bitte Einzelauszahlung exportieren.');if(eligible.length!==items.length)blocking.push('Nicht alle Transaktionen sind einer geprüften Auszahlung zugeordnet.');if(!paidItems.length)blocking.push('Keine abgeschlossenen Transaktionen im Export.');let total=eligible.reduce((a,x)=>a+x.net,0);if(!Number.isSafeInteger(total))blocking.push('Summe zu groß.');return {items,issues,invalid,pending,paidDates,sum,eligibleTotal:total,blocking,canCompare:blocking.length===0,payoutRef:payoutRef.trim(),mode}}
+root.DigitalPilotCore={parseCSV,money,analyze,validDate};if(typeof module!=='undefined'&&module.exports)module.exports=root.DigitalPilotCore;
+})(typeof globalThis!=='undefined'?globalThis:this);
+</script><script>/* DigitalPilot v0.7 – local bank CSV parsing and reference-aware reconciliation.
+   All comparisons are evidence signals, not payment confirmations. */
+(function(root){
+'use strict';
+const C=root.DigitalPilotCore;
+if(!C)throw Error('Shopify-Prüfkern fehlt');
+const normalize=s=>String(s??'').toLowerCase().trim()
+ .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+ .replace(/[\s_\-\.]/g,'');
+function inferColumns(head){
+ const n=head.map(normalize); const find=aliases=>n.findIndex(x=>aliases.some(a=>x===normalize(a)));
+ return {amount:find(['Betrag','Amount','Umsatz','Betrag EUR','Umsatz in EUR']),
+ date:find(['Buchungstag','Buchungsdatum','Datum','Booking Date','Date','Valutadatum']),
+ text:find(['Verwendungszweck','Buchungstext','Text','Buchungsinformation','Umsatztext','Description','Beschreibung','Zahlungsempfaenger','Empfaenger','Buchungsdetails','Zahlungsreferenz','Reference','Payment Reference','Memo']),
+ currency:find(['Währung','Waehrung','Currency','ISO Currency','Währungscode'])};
+}
+function normalizeBankDate(value){
+ const x=String(value??'').trim();
+ if(C.validDate(x)){
+  if(x.includes('-'))return x;
+  const a=x.split('.');return `${a[2]}-${a[1]}-${a[0]}`;
+ }
+ // Bank time stamps are often ISO date followed by time; only keep a valid date component.
+ const iso=/^(\d{4}-\d{2}-\d{2})[ T]\d{2}:\d{2}(?::\d{2})?(?:Z|[+-]\d{2}:?\d{2})?$/.exec(x);
+ if(iso&&C.validDate(iso[1])){const hm=/[ T](\d{2}):(\d{2})(?::(\d{2}))?/.exec(x);if(hm&&+hm[1]<24&&+hm[2]<60&&(hm[3]===undefined||+hm[3]<60))return iso[1];}
+ const slash=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(x);
+ if(slash){const date=`${slash[3]}-${slash[2]}-${slash[1]}`;return C.validDate(date)?date:null;}
+ return null;
+}
+function bankRead(rows,mapping){
+ if(!Array.isArray(rows)||rows.length<2)throw Error('Keine Bankbuchungen');
+ const head=rows[0];if(new Set(head.map(normalize)).size!==head.length)throw Error('Doppelte Bank-Spaltenüberschriften. Bitte Export prüfen.');
+ const col=name=>{let i=Number(mapping[name]);if(!Number.isInteger(i)||i<0||i>=head.length)throw Error('Spalte „'+name+'“ fehlt');return i};
+ let a=col('amount'),d=col('date'),t=col('text'),cu=-1;
+ if(mapping.currency!==undefined&&mapping.currency!==null&&String(mapping.currency)!=='-1'&&String(mapping.currency)!=='')cu=col('currency');
+ if(new Set([a,d,t,...(cu>=0?[cu]:[])]).size!==3+(cu>=0?1:0))throw Error('Bitte unterschiedliche Spalten für Betrag, Datum, Buchungstext und Währung wählen');
+ const entries=[],issues=[];
+ for(let i=1;i<rows.length;i++){
+  const r=rows[i],line=i+1;
+  if(r.length!==head.length){issues.push('Zeile '+line+': falsche Spaltenanzahl');continue}
+  if(cu>=0&&String(r[cu]).trim().toUpperCase()!=='EUR'){
+   issues.push('Zeile '+line+': Währung nicht EUR oder leer; nicht verglichen');continue;
+  }
+  const cents=C.money(r[a]);
+  if(cents===null||!Number.isSafeInteger(cents)){
+   issues.push('Zeile '+line+': Betrag ungültig');continue;
+  }
+  const date=normalizeBankDate(r[d]);
+  if(!date){issues.push('Zeile '+line+': Datum fehlt oder ist nicht eindeutig. Erwartet: TT.MM.JJJJ, JJJJ-MM-TT oder ISO-Zeitstempel.');continue;}
+  entries.push({line,date,text:String(r[t]||''),cents});
+ }
+ return {entries,issues,headers:head,currencyChecked:cu>=0};
+}
+function safeDate(v){
+ if(!C.validDate(v))return null;
+ const parts=v.includes('-')?v.split('-').map(Number):v.split('.').reverse().map(Number);
+ return Date.UTC(parts[0],parts[1]-1,parts[2]);
+}
+function dayDistance(a,b){const x=safeDate(a),y=safeDate(b);return x===null||y===null?null:Math.round((x-y)/86400000)}
+function referenceMatch(reference,bankText){
+ const target=(String(reference||'').toUpperCase().match(/[A-Z0-9]+/g)||[]).join('');
+ if(target.length<7)return false;
+ const tokens=String(bankText||'').toUpperCase().match(/[A-Z0-9]+/g)||[];
+ for(let i=0;i<tokens.length;i++){
+  let joined='';
+  for(let j=i;j<tokens.length&&joined.length<=target.length;j++){
+   joined+=tokens[j];
+   if(joined===target)return true;
+  }
+ }
+ return false;
+}
+function providerSignal(text){
+ return /\b(?:shopify|stripe\s*payments)\b/i.test(String(text||''));
+}
+function bankSuggest(bank,amount,opts={}){
+ if(!Number.isSafeInteger(amount))throw Error('Shopify-Betrag fehlt');
+ const bankReference=String(opts.bankReference||'').trim();
+ const payoutDate=String(opts.payoutDate||'').trim();
+ const before=Number.isInteger(opts.daysBefore)?opts.daysBefore:2;
+ const after=Number.isInteger(opts.daysAfter)?opts.daysAfter:10;
+ const matches=bank.entries.filter(x=>x.cents===amount).map(e=>{
+  const distance=dayDistance(e.date,payoutDate);
+  const datePlausible=distance!==null&&distance>=-before&&distance<=after;
+  const refMatched=referenceMatch(bankReference,e.text);
+  const provider=providerSignal(e.text);
+  const evidence=[];const cautions=[];
+  evidence.push('Betrag stimmt überein');
+  if(datePlausible)evidence.push('Datum im Prüfzeitraum ('+(distance>=0?'+':'')+distance+' Tage)');
+  else if(distance!==null)cautions.push('Buchungsdatum außerhalb des Prüfzeitraums ('+(distance>=0?'+':'')+distance+' Tage)');
+  else cautions.push('Shopify-Auszahlungsdatum nicht bekannt');
+  if(refMatched)evidence.push('Bankreferenz stimmt überein');
+  else if(bankReference)cautions.push('Bankreferenz im Buchungstext nicht gefunden (Banken übernehmen sie nicht immer)');
+  if(provider)evidence.push('Shopify als Zahlungsdienst im Buchungstext erkennbar');
+  else cautions.push('Shopify im Buchungstext nicht erkennbar');
+  return {...e,daysFromPayout:distance,datePlausible,refMatched,provider,evidence,cautions,
+   strength:refMatched&&datePlausible?'referenz_und_datum':refMatched?'referenz':datePlausible&&provider?'betrag_datum_anbieter':datePlausible?'betrag_datum':'nur_betrag',
+   rank:(refMatched?100:0)+(datePlausible?20:0)+(provider?5:0)};
+ }).sort((a,b)=>b.rank-a.rank||a.line-b.line);
+ const exactRef=matches.filter(x=>x.refMatched);
+ const strongestRef=exactRef.filter(x=>x.datePlausible);
+ let kind='none';let warning='Keine betragsgleiche Bankbuchung gefunden.';
+ if(matches.length){
+  kind=matches.length>1?'ambiguous':'candidate';
+  if(strongestRef.length===1){kind='strong_candidate';warning='Eine Buchung mit passender Bankreferenz, Betrag und plausiblem Datum gefunden. Auch dies ist keine bestätigte Zahlung; mit Shopify und Bank kontrollieren.';}
+  else if(strongestRef.length>1){kind='ambiguous';warning='Mehrere Buchungen mit gleicher Referenz und gleichem Betrag gefunden – keine eindeutige Zuordnung.';}
+  else if(exactRef.length){warning='Die Bankreferenz wurde gefunden, aber das Buchungsdatum ist ungewöhnlich. Bitte manuell prüfen.';}
+  else if(matches.length>1){warning='Mehrere Buchungen mit gleichem Betrag vorhanden; nur anhand Betrag nicht eindeutig.';}
+  else{warning='Nur ein möglicher Banktreffer, keine bestätigte Zahlung. Fehlende oder abweichende Referenzen sind kein automatischer Beleg.';}
+ }
+ if(bank.issues.length){if(kind==='strong_candidate')kind='candidate';warning='Bankdatei enthält '+bank.issues.length+' nicht auswertbare Zeile(n). Vollständigkeit nicht gesichert. '+warning;}
+ if(!bank.currencyChecked){if(kind==='strong_candidate')kind='candidate';warning='Bankwährung nicht aus Dateispalte geprüft. Bitte EUR manuell sicherstellen. '+warning;}
+ // An exact reference match uniquely identifies a *candidate*, not a confirmed payout.
+ return {matches,kind,warning,referenceProvided:!!bankReference,bankCurrencyVerified:bank.currencyChecked===true};
+}
+root.DigitalPilotBank={bankRead,bankSuggest,inferColumns,referenceMatch,dayDistance,providerSignal,normalizeBankDate};
+if(typeof module!=='undefined'&&module.exports)module.exports=root.DigitalPilotBank;
+})(typeof globalThis!=='undefined'?globalThis:this);
+</script><script>/* DigitalPilot 0.12 demo interface: locked to synthetic data; no file handling or network. */
+(()=>{'use strict';
+ const C=window.DigitalPilotCore,B=window.DigitalPilotBank;
+ const $=id=>document.getElementById(id);
+ const fmt=cents=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(cents/100);
+ const demoShopify='Transaction Date,Type,Order,Card Brand,Card Source,Payout Status,Payout Date,Available On,Amount,Fee,Net\n2026-10-01 11:26:40 +0200,charge,#1001,visa,online,paid,2026-10-03,2026-10-03,100.00,2.00,98.00\n2026-10-01 12:18:12 +0200,refund,#1001,visa,online,paid,2026-10-03,2026-10-03,-20.00,0.00,-20.00';
+ const bankTable='Buchungstag;Betrag;Verwendungszweck;Währung\n04.10.2026;78,00;Shopify Payments TRF-20261003-ABC123;EUR\n04.10.2026;78,00;Andere Überweisung;EUR';
+ const bankNoMatch='Buchungstag;Betrag;Verwendungszweck;Währung\n04.10.2026;79,00;Andere Überweisung;EUR';
+ const shop=C.analyze(C.parseCSV(demoShopify),{mode:'single',payoutRef:'FIKTIVE-Auszahlung 03.10.2026',currencyConfirmed:true,exportCompleteConfirmed:true});
+ if(!shop.canCompare)throw Error('Demo nicht testbar: '+shop.blocking.join('; '));
+ $('gross').textContent=fmt(shop.sum.amount);$('fees').textContent=fmt(shop.sum.fee);$('net').textContent=fmt(shop.eligibleTotal);
+ $('calculationStatus').textContent=shop.invalid?'Rechenprüfung enthält Fehler – keine Bankzuordnung zulässig.':'Rechenprüfung: Amount − Fee = Net je Zeile; keine Rechenabweichung im fiktiven Datensatz.';
+ const scenarios={ambiguous:{csv:bankTable,reference:'',title:'Mehrdeutig: mehrere mögliche Bankbuchungen',desc:'Nur der gleiche Betrag reicht nicht zur eindeutigen Zuordnung. Bitte in der echten Anwendung Referenzen und Auszahlungsdetails prüfen.'},reference:{csv:bankTable,reference:'TRF-20261003-ABC123',title:'Passende Referenz – weiterhin kein Zahlungsbeweis',desc:'Eine der beiden Buchungen trägt die Beispielreferenz und hat ein plausibles Datum. Die Zuordnung bleibt ein Prüfhinweis.'},'no-match':{csv:bankNoMatch,reference:'TRF-20261003-ABC123',title:'Kein passender Bankbetrag im Beispiel',desc:'Aus dieser Beispieldatei lässt sich kein Treffer ableiten. Das beweist nicht, dass eine Zahlung tatsächlich fehlt.'}};
+ const render=key=>{const scenario=scenarios[key];if(!scenario)return;
+  document.querySelectorAll('[data-case]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.case===key)));
+  const rows=C.parseCSV(scenario.csv);const columns=B.inferColumns(rows[0]);const bank=B.bankRead(rows,columns);
+  const suggestion=B.bankSuggest(bank,shop.eligibleTotal,{bankReference:scenario.reference,payoutDate:shop.paidDates[0]});
+  $('status').textContent=scenario.title;
+  $('explanation').textContent=scenario.desc+' '+suggestion.warning;
+  const list=$('candidateList');list.replaceChildren();
+  for(const match of suggestion.matches){const el=document.createElement('article');el.className='candidate';
+   const title=document.createElement('strong');title.textContent=`Beispiel-Bankzeile ${match.line} · ${fmt(match.cents)} · ${match.date}`;el.append(title);
+   const text=document.createElement('p');text.className='note';text.textContent=match.text;el.append(text);
+   const notes=document.createElement('ul');for(const t of [...match.evidence.map(v=>'Hinweis: '+v),...match.cautions.map(v=>'Unsicherheit: '+v)]){const li=document.createElement('li');li.textContent=t;notes.append(li)}el.append(notes);list.append(el);}
+  document.body.dataset.case=key;document.body.dataset.result=suggestion.kind;
+ };
+ document.querySelectorAll('[data-case]').forEach(btn=>btn.addEventListener('click',()=>render(btn.dataset.case)));
+ render('ambiguous');
+ $('feedbackDownload').addEventListener('click',()=>{
+  const val=id=>$(id).value;
+  const body=['DigitalPilot 0.12 – anonymes Demo-Feedback','Demofall: '+(document.body.dataset.case||''),'Bedienbarkeit: '+(val('easy')||'nicht angegeben'),'Nutzen klar: '+(val('useful')||'nicht angegeben'),'Verbesserungswunsch:',val('comment')||'keine Angabe','', 'Freiwilliges, lokal erstelltes Feedback; nicht automatisch versendet.'].join('\r\n');
+  const url=URL.createObjectURL(new Blob([body],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='digitalpilot-demo-feedback.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$('feedbackStatus').textContent='Textdatei lokal gespeichert. Nichts wurde automatisch versendet.';
+ });
+})();
+</script></body></html>
